@@ -4,7 +4,7 @@
 #include <RCSwitch.h>
 #include <Ticker.h>
 
-#define DEBUGGING true
+#define DEBUGGING false
 #define TRANSMIT_PIN 12
 
 const char* ssid = "";          # ToDo
