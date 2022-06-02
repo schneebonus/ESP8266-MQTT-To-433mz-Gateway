@@ -4,7 +4,7 @@
 
 A robust and minimalistic mqtt to 433mhz gateway for the esp8266.
 Enables cheap wireless sockets from the DIY store to be controlled via the MQTT home automation server.
-This project follows a minimalist approach, designed solely for reliability.
+This project follows a minimalist approach, designed solely for reliability and easy Node-RED integration.
 
 ### Requirenments
 
