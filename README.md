@@ -6,6 +6,8 @@ A robust and minimalistic mqtt to 433mhz gateway for the esp8266.
 Enables cheap wireless sockets from the DIY store to be controlled via the MQTT home automation server.
 This project follows a minimalist approach, designed solely for reliability and easy Node-RED integration.
 
+![Soldering like a boss](https://github.com/schneebonus/ESP8266-MQTT-To-433mz-Gateway/blob/main/gateway.jpeg?raw=true)
+
 ### Requirenments
 
 - ESP8266 board definition ( https://arduino-esp8266.readthedocs.io/en/latest/installing.html )
@@ -16,13 +18,16 @@ This project follows a minimalist approach, designed solely for reliability and 
 
 ### Install
 
-- set wifi settings (ssid and passsword)
-- set mqtt settings (mqttServer, mqttPort, mqttUser, mqttPassword)
-- deploy to your esp8266
+- Download 433mhz_mqtt_gateway.ino
+- Set wifi settings (ssid and passsword)
+- Set mqtt settings (mqttServer, mqttPort, mqttUser, mqttPassword)
+- Deploy to your esp8266
 
 ### Node-RED integration
 
-ToDo
+- Install the default mqtt node
+- Create a function containing nodered_function.js:
+![Node-RED Integration Example](https://github.com/schneebonus/ESP8266-MQTT-To-433mz-Gateway/blob/main/nodered.png?raw=true)
 
 ### Background information
 
