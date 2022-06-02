@@ -114,7 +114,7 @@ void connect_mqtt() {
   client.setServer(mqttServer, mqttPort);
   client.setCallback(callback);
   while (!client.connected() && mqtt_retry < 5) {
-    if (client.connect("GatewayTo433mhz" + GATEWAY_ID, mqttUser, mqttPassword )) {
+    if (client.connect(("gatewayTo433mhz" + String(GATEWAY_ID)).c_str(), mqttUser, mqttPassword )) {
       if(DEBUGGING)Serial.println("Connected to MQTT");
     } else {
       mqtt_retry++;
