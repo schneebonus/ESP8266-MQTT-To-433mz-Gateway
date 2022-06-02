@@ -4,8 +4,9 @@
 #include <RCSwitch.h>
 #include <Ticker.h>
 
-#define DEBUGGING false
-#define TRANSMIT_PIN 12
+#define DEBUGGING     false
+#define TRANSMIT_PIN  12
+#define GATEWAY_ID    1
 
 const char* ssid = "";          # ToDo
 const char* password = "";      # ToDo
@@ -28,7 +29,7 @@ void setup() {
   // init
   connect_wifi();               // wlan verbinden
   connect_mqtt();               // mqtt verbinden
-  client.subscribe((MQTT_TOPIC + "/+").c_str());
+  client.subscribe((MQTT_TOPIC + "/#").c_str());
   mySwitch.enableTransmit(TRANSMIT_PIN);
 
   // start the watchdog
@@ -57,6 +58,9 @@ void loop() {
         // if reconnect failed 5 times -> restart esp
         ESP.restart();
     }
+
+    // handle mqtt connection
+    if(!client.connected())ESP.restart();
 }
 //---------------------- String Magic --------------------------//
 String extract_hauscode_from_topic(String topic){
@@ -106,12 +110,14 @@ void connect_wifi() {
 
 //---------------------- MQTT --------------------------//
 void connect_mqtt() {
+  int mqtt_retry = 0;
   client.setServer(mqttServer, mqttPort);
   client.setCallback(callback);
-  while (!client.connected()) {
-    if (client.connect("ESP32Client", mqttUser, mqttPassword )) {
+  while (!client.connected() && mqtt_retry < 5) {
+    if (client.connect("GatewayTo433mhz" + GATEWAY_ID, mqttUser, mqttPassword )) {
       if(DEBUGGING)Serial.println("Connected to MQTT");
     } else {
+      mqtt_retry++;
       if(DEBUGGING)Serial.print("failed with state ");
       if(DEBUGGING)Serial.print(client.state());
       delay(2000);
