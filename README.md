@@ -1,4 +1,5 @@
-# ESP8266-MQTT-To-433mz-Gateway
+# ESP8266 gateway: MQTT to 433mz
+
 ## Minimalistic MQTT to 433mz remote socket gateway for ESP8266
 
 A robust and minimalistic mqtt to 433mhz gateway for the esp8266.
