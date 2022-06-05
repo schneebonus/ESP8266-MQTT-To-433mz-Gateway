@@ -31,7 +31,7 @@ This project follows a minimalist approach, designed solely for reliability and 
 
 ### Background information
 
-- 433mhz sender is expected to be on port 12 of the esp8266 but can be changed by changing "TRANSMIT_PIN"
+- 433mhz sender is expected to be on pin 12 of the esp8266 but can be changed by changing "TRANSMIT_PIN"
 - main loop has to finish every cycle in 10 seconds or the watchdog restarts the device
 - if wifi reconnect fails 5 times in a row, the revice restarts
 
