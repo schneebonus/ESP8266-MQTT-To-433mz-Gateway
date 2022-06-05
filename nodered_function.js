@@ -3,6 +3,10 @@ msg.topic -> Name of the device
 msg.payload -> Boolean switching state
                 true  -> on
                 false -> off
+                                
+Returns:
+msg.topic   -> 433mhz/House_Code+Device_Code
+msg.payload -> "true" or "false"
 **/
 
 // define gateway
